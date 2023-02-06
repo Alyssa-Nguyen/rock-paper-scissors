@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Rock Paper Scissor Game</title>
+        
+        <link rel="stylesheet" href="./style.css">
+        <script src="newScript.js" defer></script>
+
     </head>
     <body>
+        <div class="wrapper">
         <h2>Play Rock Paper Scissors</h2>
         <br>
-        <h4> Player choose the following: </h4>
+        <h4> Player choose your weapon: </h4>
         <div id="container">
-            <button type="button" id="rock">Rock</button>
-            <button type="button" id="paper">Paper</button>
-            <button type="button" id="scissors">Scissors</button>
+            <button type="button" class="weapon" id="rock">Rock</button>
+            <button type="button" class="weapon" id="paper">Paper</button>
+            <button type="button" class="weapon" id="scissors">Scissors</button>
         </div>
         <div class="parentPlayer"> 
-            <div class="childScore">Player's Score: </div>
+            <div class="childScore">Player's Score:  </div>
             <div class="childScore" id="pScore"> </div>
         </div>
         <div class="parentComp">
@@ -24,8 +29,10 @@
   
         <div class="winAll"> </div>
 
+        </div>
 
-        <script src="newScript.js"></script>
+
+       
         
             
 

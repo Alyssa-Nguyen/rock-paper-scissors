@@ -6,9 +6,36 @@ let computerScore = 0;
 let playerChoice = '';
 
 const buttons = document.querySelectorAll('button');
+let resetButton;
 
+let winAllText = document.querySelector('.winAll');
 
+let playerScoreText = document.querySelector('#pScore');
+let computerScoreText = document.querySelector('#cScore');
+const divWrap = document.querySelector('.wrapper');
 
+function setGameOver() {    
+    for (button of buttons) {
+        button.disabled = true;
+    }
+    resetButton = document.createElement('button');
+    resetButton.textContent = 'Start a new game';
+    divWrap.append(resetButton);
+    resetButton.addEventListener('click', resetGame);
+}
+
+function resetGame() {
+    winAllText.textContent = '';
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreText.textContent = '';
+    computerScoreText.textContent = '';
+    resetButton.parentNode.removeChild(resetButton);
+    for (button of buttons) {
+        button.disabled = false;
+    }
+
+}
 
 // when each of the RPS button is clicked, it will call function to play round
 buttons.forEach((button) => {
@@ -24,9 +51,11 @@ function playRound(playerSelection) {
     const computerSelection = computerChoice();    
     const winner = checkWinner(playerSelection, computerSelection);    
     if (playerScore >= 5) {
-        document.querySelector('.winAll').textContent = "Player win all 5 rounds";        
+        winAllText.textContent = "Player win all 5 rounds";
+        setGameOver();        
     } else if (computerScore >= 5) {
-        document.querySelector('.winAll').textContent = "Computer win all 5 rounds";        
+        winAllText.textContent = "Computer win all 5 rounds";
+        setGameOver();        
     }
 
 }
@@ -50,16 +79,18 @@ function checkWinner(choiceP, choiceC) {
     ) {        
         playerScore++;
         console.log("Player Score: " +playerScore);
-        document.querySelector('#pScore').textContent = ` ${playerScore}`;
+        playerScoreText.textContent = ` ${playerScore}`;
         return "Winner: Player";
 
     } else {        
         computerScore++;
         console.log("Comp Score: " +computerScore);
-        document.querySelector('#cScore').textContent = ` ${computerScore}`;
+        computerScoreText.textContent = ` ${computerScore}`;
         return "Winner: Computer";
-    }  
-     
+    }    
 
 }
+
+
+
 
