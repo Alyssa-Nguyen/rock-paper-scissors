@@ -1,2 +1,4 @@
 # rock-paper-scissors
- Play RPS game with computer
+ Play Rock Paper Scissors game against the computer!
+
+https://alyssa-nguyen.github.io/rock-paper-scissors/
